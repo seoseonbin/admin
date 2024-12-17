@@ -178,7 +178,7 @@ export const fetchBlockUser = async (targetId: any) => {
 // DELETE POST (신고 삭제)
 export const fetchDeletePost = async (reportId: number) => {
   try {
-    const apiUrl = `http://noum.iptime.org:9000/admin/reports?report_id=${reportId}`;
+    const apiUrl = `http://noum.iptime.org:9000/admin/reports/decline?report_id=${reportId}`;
     const response = await axios.delete(apiUrl);
     console.log(`Deleted report with ID: ${reportId}`, response.data);
     return response.data; 
