@@ -42,7 +42,7 @@ const Profile = () => {
           <div className="avatar">
             <div className="w-24 xl:w-36 2xl:w-48 rounded-full">
               <img
-                src="../../public/Portrait_Placeholder.png"
+                src="/Portrait_Placeholder.png"
                 alt="Profile"
               />
             </div>

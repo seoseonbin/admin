@@ -26,7 +26,7 @@ const Users = () => {
   };
 
   const columns: GridColDef[] = [
-    { field: 'id', headerName: '순번', width: 90 },
+    { field: 'id', headerName: '순번', width: 50 },
     {
       field: 'username',
       type: 'string',
@@ -38,7 +38,7 @@ const Users = () => {
       field: 'email',
       type: 'string',
       headerName: '이메일',
-      minWidth: 200,
+      minWidth: 300,
       flex: 1,
     },
     {

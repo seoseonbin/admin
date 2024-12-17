@@ -24,12 +24,11 @@ const Products = () => {
   }, [isSuccess, products]);
 
   const columns: GridColDef[] = [
-    { field: 'id', headerName: '순번', width: 90 },
+    { field: 'id', headerName: '순번', width: 70 },
     {
       field: 'user_id',
       headerName: '이름',
-      minWidth: 100,
-      flex: 1,
+      minWidth: 50,
       renderCell: (params) => {
         const user = users?.find((user: any) => user.id === params.value);
         return <span>{user?.username || 'Unknown'}</span>;
@@ -49,7 +48,7 @@ const Products = () => {
     {
       field: 'book_condition',
       headerName: '상태',
-      width: 100,
+      width: 70,
     },
     {
       field: 'published_date',
@@ -60,8 +59,15 @@ const Products = () => {
     {
       field: 'description',
       headerName: '설명',
-      minWidth: 100,
+      minWidth: 250,
       flex: 1,
+      renderCell: (params) => {
+        const maxLength = 15;
+        const text = params.value || '';
+        const truncatedText =
+          text.length > maxLength ? `${text.substring(0, maxLength)}...` : text;
+        return <span title={text}>{truncatedText}</span>;
+      },
     },
   ];
 
