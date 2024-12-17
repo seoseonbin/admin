@@ -28,7 +28,8 @@ const Products = () => {
     {
       field: 'user_id',
       headerName: '이름',
-      minWidth: 50,
+      minWidth: 100,
+      flex: 1,
       renderCell: (params) => {
         const user = users?.find((user: any) => user.id === params.value);
         return <span>{user?.username || 'Unknown'}</span>;

@@ -27,6 +27,13 @@ const Product = () => {
     enabled: !!productData?.isbn,  // ISBN이 있을 때만 호출
   });
 
+  // 판매자 정보 가져오기
+  const { data: sellerData } = useQuery({
+    queryKey: ['user', productData?.user_id],
+    queryFn: () => fetchSingleUser(productData?.user_id),
+    enabled: !!productData?.user_id, // user_id가 있을 때만 호출
+  });
+
   React.useEffect(() => {
     if (productError) {
       toast.error('Error while getting the product data!', {
@@ -108,7 +115,7 @@ const Product = () => {
               {/* column 2 */}
               <div className="col-span-2 flex flex-col items-start gap-3 xl:gap-4">
                 <span className="font-semibold">
-                  {productData?.username || 'Unknown'} {/* user_id로 사용자 이름 표시 */}
+                  {sellerData?.username}
                 </span>
                 <span className="font-semibold">
                   {productData?.price}
